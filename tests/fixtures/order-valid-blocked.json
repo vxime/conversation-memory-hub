@@ -1,0 +1,50 @@
+{
+  "kind": "order",
+  "payload": {
+    "protocol": "ai-supervisor/order/v1",
+    "task_id": "example-task",
+    "target": {
+      "repository": "example-org/example-project",
+      "issue_number": 123,
+      "pr_number": null,
+      "branch": "feat/example",
+      "observed_head_sha": "a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4"
+    },
+    "decision": "BLOCKED",
+    "evidence": {
+      "plan_path": "docs/example-plan.md",
+      "checkpoint_path": "tasks/example/checkpoint.json",
+      "diff_ref": "https://github.com/example-org/example-project/pull/456/files",
+      "ci": {
+        "head_sha": "a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4",
+        "required_checks": [
+          {
+            "name": "validate",
+            "status": "SUCCESS",
+            "run_id": 1001,
+            "run_attempt": 1,
+            "url": "https://github.com/example-org/example-project/actions/runs/1001"
+          }
+        ]
+      }
+    },
+    "next_action": {
+      "scope": "CI evidence unavailable: required checks not found for this HEAD. Stop writing.",
+      "allowed_operations": [
+        "read_only_review"
+      ],
+      "forbidden_operations": [
+        "merge",
+        "production_deploy",
+        "publish",
+        "edit_feature_branch"
+      ],
+      "required_result": "Re-read PR checks and re-issue review when evidence is complete."
+    },
+    "order_id": "f57061be196e78668c3912d55acc180b40dc4f2bec6757d5a4a39b62dbfeb782"
+  },
+  "expect": {
+    "valid": true,
+    "orderIdMatches": true
+  }
+}

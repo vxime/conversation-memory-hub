@@ -1,0 +1,53 @@
+{
+  "adapter": "example-project",
+  "ci": {
+    "provider": "github-actions",
+    "required_checks_source": "live branch protection / workflow definitions; re-read at review time, never cached",
+    "runner_labels": [
+      "self-hosted",
+      "linux",
+      "x64",
+      "example-project"
+    ]
+  },
+  "comment_semantics": {
+    "approval": "approve release",
+    "do_not_intercept": [
+      "continue advancing",
+      "approve release",
+      "draft article"
+    ],
+    "note": "Existing operational short-commands keep their meaning. The Supervisor resume only activates inside an explicit engineering task context (repo + task_id + Issue/PR known).",
+    "resume_trigger": "continue"
+  },
+  "engineering_contracts": {
+    "agents_md": "AGENTS.md (repo root)",
+    "checkpoint_schema": "docs/contracts/CHECKPOINT-SCHEMA.md",
+    "engineering_rules": "docs/architecture/ENGINEERING-RULES.md"
+  },
+  "note": "Read-only metadata about the target project. This file grants nothing and changes nothing in the target repository.",
+  "repository": "example-org/example-project",
+  "task_states": [
+    "PLANNED",
+    "RUNNING",
+    "BLOCKED",
+    "DONE"
+  ],
+  "trusted_comment_authors": [
+    "example-owner"
+  ],
+  "v1_0_boundaries": {
+    "b_may_not": [
+      "edit feature branch code",
+      "update dev checkpoint",
+      "rerun CI",
+      "merge",
+      "deploy",
+      "publish",
+      "modify approval scope"
+    ],
+    "comment_channel": "open development PR conversation, or task Issue when no PR exists",
+    "new_actions": "none - monitor/developer act inside existing tool sessions; target repo normal CI unchanged",
+    "order_header": "AI-SUPERVISOR-ORDER/v1"
+  }
+}

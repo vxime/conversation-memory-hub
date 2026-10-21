@@ -1,0 +1,51 @@
+{
+  "kind": "order",
+  "payload": {
+    "protocol": "ai-supervisor/order/v1",
+    "task_id": "example-task",
+    "target": {
+      "repository": "example-org/example-project",
+      "issue_number": null,
+      "pr_number": null,
+      "branch": "feat/example",
+      "observed_head_sha": "a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4"
+    },
+    "decision": "ADVANCE",
+    "evidence": {
+      "plan_path": "docs/example-plan.md",
+      "checkpoint_path": "tasks/example/checkpoint.json",
+      "diff_ref": "https://github.com/example-org/example-project/pull/456/files",
+      "ci": {
+        "head_sha": "a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4",
+        "required_checks": [
+          {
+            "name": "validate",
+            "status": "SUCCESS",
+            "run_id": 1001,
+            "run_attempt": 1,
+            "url": "https://github.com/example-org/example-project/actions/runs/1001"
+          }
+        ]
+      }
+    },
+    "next_action": {
+      "scope": "Implement phase 2 of the plan on feat/example.",
+      "allowed_operations": [
+        "edit_feature_branch",
+        "run_scoped_tests",
+        "update_checkpoint"
+      ],
+      "forbidden_operations": [
+        "merge",
+        "production_deploy",
+        "publish"
+      ],
+      "required_result": "New commit on feat/example with scoped tests and CI evidence on the new HEAD."
+    },
+    "order_id": "bec425163c73b1d7491d30d13191cdc36a8d46f4dfa33b55fd76fd4bbb915887"
+  },
+  "expect": {
+    "valid": false,
+    "errorCode": "NO_CHANNEL"
+  }
+}

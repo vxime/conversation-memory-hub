@@ -1,0 +1,21 @@
+{
+  "kind": "ack",
+  "payload": {
+    "protocol": "ai-supervisor/ack/v1",
+    "order_id": "c4b476cda2625233ae8fa6e3c148716aee327a78fb28c0d29a70fd2abb77bb04",
+    "task_id": "example-task",
+    "repository": "example-org/example-project",
+    "observed_head_sha": "a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4",
+    "decision_received": "ADVANCE",
+    "new_head_sha": "b1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4",
+    "executed": [
+      "Implemented phase 2 on feat/example",
+      "Scoped tests passed"
+    ],
+    "comment_url": "https://github.com/example-org/example-project/pull/456#issuecomment-1",
+    "ack_id": "0d71a539507a21376061a2816fef231e13a20824d41862babfd44f661b97b0c7"
+  },
+  "expect": {
+    "valid": true
+  }
+}

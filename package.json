@@ -1,0 +1,16 @@
+{
+  "name": "conversation-memory-hub",
+  "version": "1.0.0",
+  "description": "AI Supervisor — a conversation memory hub: a GitHub-driven protocol for cross-session AI code review and handoff (Supervisor Order / Developer ACK via GitHub Issue/PR comments)",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "fixtures": "node scripts/run-protocol-fixtures.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "validate-order": "node scripts/validate-order.mjs"
+  }
+}
